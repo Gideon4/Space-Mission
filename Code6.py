@@ -1,3 +1,5 @@
+from pgzero.builtins import *
+
 WIDTH=800
 LENGTH=600
 
@@ -53,36 +55,36 @@ GAME_MAP  += [
 assert len(GAME_MAP)-1 == MAP_SIZE, "Map size and GAME_MAP don't match"
 
 def comproom(height, width, exittop, exitright):
-    
+
     fakerow=[1]
     room=[]
-    
+
     room.append([1]*width)
-    
+
     for i in range (height-2):
         for j in range (width-2):
             fakerow.append(0)
         fakerow.append(1)
         room.append(fakerow)
         fakerow=[1]
-    
+
     room.append([1]*width)
-    
+
     if exittop:
         room[0][round(int(width/2),0)]=0
     if exitright:
         room[round(int(height/2),0)][width-1]=0
-    
+
     return(room)
-    
-'''def draw():    
+
+'''def draw():
     for y in range (roomheight):
         for x in range (roomwidth):
             item=room[y][x]
             drawing=OBJECT_LIST[item]
-            
+
             screen.blit(drawing, (topleftx+x*30, toplefty+y*30-drawing.get_height()))'''
-            
+
 roomnumber=31
 
 roomname=GAME_MAP[roomnumber][0]
